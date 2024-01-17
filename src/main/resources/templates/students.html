@@ -45,7 +45,10 @@
             <td th:text="${student.firstName}">First Name</td>
             <td th:text="${student.lastName}">Last Name</td>
             <td th:text="${student.email}">Email</td>
-            <td>Action Links</td>
+            <td>
+                <a class="btn btn-primary" th:href="@{/students/{studentId}/edit(studentId=${student.id})}">Edit</a>
+
+            </td>
         </tr>
 
         </tbody>
