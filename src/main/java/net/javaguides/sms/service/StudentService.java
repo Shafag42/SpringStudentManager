@@ -1,11 +1,11 @@
-package com.sys.service;
+package net.javaguides.sms.service;
 
-import com.sys.dto.StudentDto;
+import net.javaguides.sms.dto.StudentDto;
 
 import java.util.List;
 
 public interface StudentService {
-    List<StudentDto>getAllStudents();
+    List<StudentDto> getAllStudents();
 
     void createStudent(StudentDto student);
 

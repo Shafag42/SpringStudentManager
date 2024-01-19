@@ -1,11 +1,10 @@
-package com.sys.service.Impl;
+package net.javaguides.sms.service.impl;
 
-import com.sys.dto.StudentDto;
-import com.sys.entity.Student;
-import com.sys.mapper.StudentMapper;
-import com.sys.repository.StudentRepository;
-import com.sys.service.StudentService;
-import org.springframework.beans.factory.annotation.Autowired;
+import net.javaguides.sms.dto.StudentDto;
+import net.javaguides.sms.entity.Student;
+import net.javaguides.sms.mapper.StudentMapper;
+import net.javaguides.sms.repository.StudentRepository;
+import net.javaguides.sms.service.StudentService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,9 +12,9 @@ import java.util.stream.Collectors;
 
 @Service
 public class StudentServiceImpl implements StudentService {
+
     private StudentRepository studentRepository;
 
-    @Autowired
     public StudentServiceImpl(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
@@ -24,7 +23,7 @@ public class StudentServiceImpl implements StudentService {
     public List<StudentDto> getAllStudents() {
         List<Student> students = studentRepository.findAll();
         List<StudentDto> studentDtos = students.stream()
-                .map(student -> StudentMapper.mapToStudentDto(student))
+                .map((student) -> StudentMapper.mapToStudentDto(student))
                 .collect(Collectors.toList());
         return studentDtos;
     }
@@ -51,6 +50,4 @@ public class StudentServiceImpl implements StudentService {
     public void deleteStudent(Long studentId) {
         studentRepository.deleteById(studentId);
     }
-
-
 }
